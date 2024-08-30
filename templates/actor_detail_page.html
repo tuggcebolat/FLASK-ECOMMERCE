@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}{{movie['name']}}{% endblock title %}
+
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Img</th>
+            <th scope="col">Name</th>
+            <th scope="col">Likes</th>
+            <th scope="col">Dislikes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for movie in movies %}
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='images/movie/' + movie['movie.image']) }}">
+            </td>
+            <td>{{ movie['movie.name'] }}</td>
+            <td>{{ movie['movie.likes'] }}</td>
+            <td>{{ movie['movie.dislikes'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
